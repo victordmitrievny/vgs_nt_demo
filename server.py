@@ -16,6 +16,7 @@ SA_CLIENT_ID = os.getenv('SA_CLIENT_ID')
 SA_CLIENT_SECRET = os.getenv('SA_CLIENT_SECRET')
 PATH_TO_VGS_CA = os.getenv('PATH_TO_VGS_CA')
 ADYEN_TOKEN = os.getenv('ADYEN_TOKEN')
+MERCHANT_ACCOUNT = os.getenv('MERCHANT_ACCOUNT')
 ADYEN_URL= 'https://checkout-test.adyen.com/v69/payments'
 
 DEBUG = True
@@ -137,7 +138,7 @@ def post_to_adyen(card_number_token, card_exp_month, card_exp_year, card_holder)
                 "cvc": "123",
                 "holderName": card_holder
             },
-            "merchantAccount": "VGSAccount456ECOM"
+            "merchantAccount": MERCHANT_ACCOUNT
         }
     
     return post_request(url, headers, payload, proxy)
